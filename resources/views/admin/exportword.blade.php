@@ -43,6 +43,12 @@ table{
 	width: 100% !important;
 	text-align: left
 }
+td{
+	padding-left: 5px!important;
+}
+.personAddress{
+	padding: 0% !important;
+}
 
 	</style>
 </head>
@@ -85,7 +91,7 @@ table{
 							</ul>
 						</div>
 						<div style="width: 100%">
-							<ul >
+							<ul class="personAddress">
 								<li style="list-style: none">
 									<span style="font-weight: bold;">Date: {{ date('d M, Y') }}</span>
 								</li>
@@ -94,8 +100,8 @@ table{
 								</li>
 							</ul>
 						</div>
-						<div >
-							<p style="text-align: center">This refers to your inquiryregarding your requirement of {{ $data['item_name'] }}. As desired by you, we are pleased to submit herewith, our best proposal as under:</p>
+						<div class="personAddress">
+							<p style="text-align: left">This refers to your inquiryregarding your requirement of {{ $data['item_name'] }}. As desired by you, we are pleased to submit herewith, our best proposal as under:</p>
 						</div>
 						<div >
 							<ul>
@@ -134,7 +140,7 @@ table{
 							</div>
 						</div>
 						<div>
-							<h3 style="text-align: center;text-decoration: underline;">MACHINE WITH STANDARD ACCESSORIES</h3>
+							<h4 style="text-align: center;text-decoration: underline;">MACHINE WITH STANDARD ACCESSORIES</h4>
 						</div>
 						<div>
 							<table style="font-family: Arial, Helvetica, sans-serif;
@@ -171,7 +177,7 @@ table{
 							</table>
 						</div>
 						<div>
-							<ul>
+							<ul class="personAddress">
 								<li style="list-style: none">
 									Our proposal consists of the following:
 								</li>
@@ -181,7 +187,7 @@ table{
 								<li style="list-style: none">
 									2)Commercial terms and conditions
 								</li>
-								<li style="list-style: none;margin-left: 30px">
+								<li style="list-style: none;">
 									<p>
 										We hope you shall find the proposal and technical specifications therein, well in line with your requirement. If you have any futher query or need any assistance with the proposal, please do not hesitate to call or email us.
 									</p>
@@ -191,8 +197,8 @@ table{
 								</li>
 							</ul>
 						</div>
-						<div style="text-align: center">
-							<ul>
+						<div style="text-align: left">
+							<ul class="personAddress">
 								<li style="list-style: none">
 									<h4 style="text-align: center;text-decoration: underline;font-weight: bold;font-weight: bold;padding-bottom: 0;margin-bottom: 3px;">TECHNICAL SPECIFICATION SHEET</h4>
 								</li>
@@ -210,6 +216,11 @@ table{
 						</div>
 						<div style="margin-top:10px !important">
 							{!! $data['other_terms'] !!}
+						</div>
+						<div>
+							<li style="list-style: none">
+								<h4 style="text-align: center;text-decoration: underline;font-weight: bold;font-weight: bold;padding-bottom: 0;margin-bottom: 3px;">COMMERCIAL TERMS AND CONDITIONS</h4>
+							</li>
 						</div>
 						<div style="margin-top:10px !important">
 							{!! $data['commercial_terms_condition'] !!}
@@ -304,8 +315,6 @@ table{
 								<ul>
 									<li style="list-style: none">
 										(i) Any claims for damage,shortage or finish must be reported immediately in writing but no later than three working days from (and including) the day of delivery and/or installation. No claim from the customer shall be accepted after this period.
-									</li>
-									<li style="list-style: none">
 										(ii) The Company does not accept liability for injuries,expenses,losses or damage caused by incorrect faulty or improper assembly of and/or installation by the Customer. Advice on assembly and installation is available upon request from the Company’s technical division.
 									</li>
 								</ul>
@@ -346,7 +355,7 @@ table{
 									</li>
 								</ul>
 							</div>
-							<div>
+							<div style="float: right;margin-top:50px">
 								<p>SIGNATURE OF THE CUSTOMER</p>
 							</div>
 						</div>
