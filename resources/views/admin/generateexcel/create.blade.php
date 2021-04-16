@@ -86,15 +86,34 @@
                 {!! Form::label('contact_person_mobile', 'Contact person mobile*', array('class'=>'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
                     {!! Form::text('contact_person_mobile', old('contact_person_mobile'), array('class'=>'form-control contact_person_mobile')) !!}
+
+                    {!! Form::hidden('attachement1', old('attachement1'), array('class'=>'form-control attachement1')) !!}
+                    {!! Form::hidden('attachement2', old('attachement1'), array('class'=>'form-control attachement2')) !!}
+                    {!! Form::hidden('attachement3', old('attachement1'), array('class'=>'form-control attachement3')) !!}
+                    {!! Form::hidden('attachement4', old('attachement1'), array('class'=>'form-control attachement4')) !!}
                 </div>
             </div>
         </div>
         <h4 style="text-align: center;font-weight: 700;font-size: 26px;padding: 20px 0px 20px 0">Item Data</h4>
+        
+        <div class="col-md-12">
+            <div class="row images">
+
+            </div>
+        </div>
+
         <div class="col-md-12 selectedItem">
             <div class="form-group">
                 {!! Form::label('item_name', 'Item Name*', array('class'=>'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
                     {!! Form::text('item_name', old('item_name'), array( 'id' => 'item_name' ,'class'=>'form-control item_name')) !!}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('price', 'Price*', array('class'=>'col-sm-2 control-label')) !!}
+                <div class="col-sm-10">
+                    {!! Form::text('price', old('price'), array( 'id' => 'price' ,'class'=>'form-control price','required' => true)) !!}
                 </div>
             </div>
             <div class="form-group">

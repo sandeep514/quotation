@@ -29,10 +29,41 @@
     })
     $(document).on('change', '.selectedItem' , function(){
         var id = $(this).val();
+        var insertHtml = "";
         $.ajax({
             url : 'get/item/details/'+id,
             type: 'GET',
             success: function(res){
+                    if(res.data.attachment1){
+                        insertHtml += `<div class='col text-center'>
+                            <img src='http://core/quotation/public/uploads/${res.data.attachment1}' width='20%'>
+                        </div>`;
+                    }
+                    if(res.data.attachment2){
+                        insertHtml += `<div class="col text-center">
+                            <img src="http://core/quotation/public/uploads/${res.data.attachment2}" width="20%">
+                        </div>`;
+                    }
+                    if(res.data.attachment3){
+                        insertHtml += `<div class="col text-center">
+                            <img src="http://core/quotation/public/uploads/${res.data.attachment3}" width="20%">
+                        </div>`;
+                    }
+                    if(res.data.attachment4){
+                        insertHtml += `<div class="col text-center">
+                            <img src="http://core/quotation/public/uploads/${res.data.attachment4}" width="20%">
+                        </div>`;
+                    }
+
+
+
+                $('.images').append(insertHtml);
+                
+                $('.attachement1').val(res.data.attachment1);
+                $('.attachement2').val(res.data.attachment2);
+                $('.attachement3').val(res.data.attachment3);
+                $('.attachement4').val(res.data.attachment4);
+
                 $('.item_name').val(res.data.item_name);
                 $('.item_model').val(res.data.item_model);
                 $('.description').val(res.data.description);
