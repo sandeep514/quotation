@@ -11,7 +11,7 @@
     </a>
 </p>
 @if ($quotations->count())
-<div class="portlet box green">
+<div class="portlet box green" style="overflow: auto!important;">
     <div class="portlet-title">
         <div class="caption">{{ trans('coreadmin::templates.templates-view_index-list') }}</div>
     </div>
@@ -22,6 +22,7 @@
                     <th>
                         {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                     </th>
+                    <th>Date</th>
                     <th>Name Of Company</th>
                     <th>Address</th>
                     <th>Phone</th>
@@ -43,6 +44,7 @@
                     <td>
                         {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                     </td>
+                    <td>{{ $row->created_at }}</td>
                     <td>{{ $row->name_of_company }}</td>
                     <td>{{ $row->address }}</td>
                     <td>{{ $row->phone }}</td>
