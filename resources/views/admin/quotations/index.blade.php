@@ -56,8 +56,8 @@
                     </td>
 
                     <td>
-                        
-                        <a href="{{ route('generate.quotaion',$row->id) }}" class="btn btn-success btn-sm">Generate</a>
+
+                        <a href="{{ route('generate.quotaion',$row->id) }}" target="_blank" class="btn btn-success btn-sm">Generate</a>
                         
                         {!! link_to_route(config('coreadmin.route').'.quotations.edit',
                         trans('coreadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn
