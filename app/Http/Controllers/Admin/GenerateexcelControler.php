@@ -11,6 +11,7 @@ use App\Items;
 use App\Http\Requests\CreatePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
 use Illuminate\Http\Request;
+use App\Quotations;
 
 class GenerateexcelControler extends Controller
 {
@@ -64,55 +65,58 @@ class GenerateexcelControler extends Controller
             ];
 
         // PartyQuotation::create($data);
-
+        Quotations::create($data);
+        
         return view('admin.exportword', compact('data'));
     }
 
     public static function numberTowords($num)
     {
-        $ones = array(
-0 =>"ZERO",
-1 => "ONE",
-2 => "TWO",
-3 => "THREE",
-4 => "FOUR",
-5 => "FIVE",
-6 => "SIX",
-7 => "SEVEN",
-8 => "EIGHT",
-9 => "NINE",
-10 => "TEN",
-11 => "ELEVEN",
-12 => "TWELVE",
-13 => "THIRTEEN",
-14 => "FOURTEEN",
-15 => "FIFTEEN",
-16 => "SIXTEEN",
-17 => "SEVENTEEN",
-18 => "EIGHTEEN",
-19 => "NINETEEN",
-"014" => "FOURTEEN"
-);
-        $tens = array(
-0 => "ZERO",
-1 => "TEN",
-2 => "TWENTY",
-3 => "THIRTY",
-4 => "FORTY",
-5 => "FIFTY",
-6 => "SIXTY",
-7 => "SEVENTY",
-8 => "EIGHTY",
-9 => "NINETY"
-);
-        $hundreds = array(
-"HUNDRED",
-"THOUSAND",
-"MILLION",
-"BILLION",
-"TRILLION",
-"QUARDRILLION"
-); /*limit t quadrillion */
+        $ones = [
+            0 =>"ZERO",
+            1 => "ONE",
+            2 => "TWO",
+            3 => "THREE",
+            4 => "FOUR",
+            5 => "FIVE",
+            6 => "SIX",
+            7 => "SEVEN",
+            8 => "EIGHT",
+            9 => "NINE",
+            10 => "TEN",
+            11 => "ELEVEN",
+            12 => "TWELVE",
+            13 => "THIRTEEN",
+            14 => "FOURTEEN",
+            15 => "FIFTEEN",
+            16 => "SIXTEEN",
+            17 => "SEVENTEEN",
+            18 => "EIGHTEEN",
+            19 => "NINETEEN",
+            "014" => "FOURTEEN"];
+        
+        $tens = [
+            0 => "ZERO",
+            1 => "TEN",
+            2 => "TWENTY",
+            3 => "THIRTY",
+            4 => "FORTY",
+            5 => "FIFTY",
+            6 => "SIXTY",
+            7 => "SEVENTY",
+            8 => "EIGHTY",
+            9 => "NINETY"];
+        
+        $hundreds = [
+            "HUNDRED",
+            "THOUSAND",
+            "MILLION",
+            "BILLION",
+            "TRILLION",
+            "QUARDRILLION"];
+
+        /*limit t quadrillion */
+        
         $num = number_format($num, 2, ".", ",");
         $num_arr = explode(".", $num);
         $wholenum = $num_arr[0];
@@ -120,6 +124,7 @@ class GenerateexcelControler extends Controller
         $whole_arr = array_reverse(explode(",", $wholenum));
         krsort($whole_arr, 1);
         $rettxt = "";
+        
         foreach ($whole_arr as $key => $i) {
             while (substr($i, 0, 1)=="0") {
                 $i=substr($i, 1, 5);
