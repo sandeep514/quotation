@@ -1,7 +1,11 @@
 @extends('admin.layouts.master')
 
 @section('content')
-
+<style>
+    .portlet-body{
+        overflow: auto!important;
+    }
+</style>
 {{-- <p>{!! link_to_route(config('coreadmin.route').'.quotations.create',
     trans('coreadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 <p> --}}
